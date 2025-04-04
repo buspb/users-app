@@ -51,7 +51,7 @@ export const UsersList = ({ data }: { data: Users | null }) => {
           />
           <MdDeleteOutline
             className="w-7 h-7 fill-red-500 cursor-pointer"
-            onClick={() => onDeleteUser(user.id)}
+            onClick={() => onDeleteUser(user.id!)}
           />
         </div>
       </div>

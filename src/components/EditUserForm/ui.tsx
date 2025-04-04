@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { updateUser } from "@/api/Users";
 import { useUsersStore } from "@/stores/usersStore";
 import { Spinner } from "../Spinner";
+import { User } from "@/types";
 
 export const EditUserForm = () => {
   const selectedUser = useUsersStore((state) => state.selectedUser);
@@ -12,7 +13,7 @@ export const EditUserForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<User>({
     defaultValues: {
       name: selectedUser?.name,
       email: selectedUser?.email,
@@ -22,12 +23,11 @@ export const EditUserForm = () => {
   const router = useRouter();
   const uploading = useUsersStore((state) => state.uploading);
   const setUploading = useUsersStore((state) => state.setUploading);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: User) => {
     setUploading(true);
     await updateUser({
       ...data,
-      id: selectedUser?.id,
+      id: selectedUser!.id,
     });
     router.push("/");
     setUploading(false);

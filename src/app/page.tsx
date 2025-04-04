@@ -19,6 +19,7 @@ export default function Home() {
       setUsers(data);
     };
     getUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const spinner = !usersList && (

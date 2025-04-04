@@ -45,7 +45,7 @@ export const deleteUser = async (userId: string) => {
 
 export const updateUser = async (data: User) => {
   try {
-    await updateDoc(doc(db, "users", data.id), data);
+    await updateDoc(doc(db, "users", data.id!), data);
   } catch (e) {
     throw e;
   }

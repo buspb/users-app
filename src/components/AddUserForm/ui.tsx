@@ -6,20 +6,20 @@ import { v4 as uuidv4 } from "uuid";
 import { addUser } from "@/api/Users";
 import { useUsersStore } from "@/stores/usersStore";
 import { Spinner } from "../Spinner";
+import { User } from "@/types";
 
 export const AddUserForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<User>();
 
   const router = useRouter();
   const uploading = useUsersStore((state) => state.uploading);
   const setUploading = useUsersStore((state) => state.setUploading);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: User) => {
     setUploading(true);
     const newId = uuidv4();
     await addUser(newId, {
