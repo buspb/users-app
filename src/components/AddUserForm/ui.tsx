@@ -60,7 +60,7 @@ export const AddUserForm = () => {
         className="flex justify-center items-center bg-gray-700 text-white text-xl font-semibold rounded-md px-10 py-2 mt-3 cursor-pointer"
         disabled={uploading ? true : false}
       >
-        {uploading ? <Spinner w={30} /> : "Сохранить"}
+        {uploading ? <Spinner /> : "Сохранить"}
       </button>
     </form>
   );

@@ -2,11 +2,11 @@ interface ISpinnerProps {
   w?: number;
 }
 
-export const Spinner = ({ w = 70 }: ISpinnerProps) => {
+export const Spinner = ({}: ISpinnerProps) => {
   return (
     <svg
       aria-hidden="true"
-      className={`w-[${w}px] text-gray-200 animate-spin dark:text-gray-600 fill-gray-500`}
+      className={`w-[40px] text-gray-200 animate-spin dark:text-gray-600 fill-gray-500`}
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
