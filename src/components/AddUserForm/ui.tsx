@@ -18,6 +18,7 @@ export const AddUserForm = () => {
   const uploading = useUsersStore((state) => state.uploading);
   const setUploading = useUsersStore((state) => state.setUploading);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = async (data: any) => {
     setUploading(true);
     const newId = uuidv4();
